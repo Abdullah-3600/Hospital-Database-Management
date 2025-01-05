@@ -27,8 +27,8 @@ class RECEPTIONIST_UI:
             frames.destroy()
 
     def patient_register(self):
-        self.delete_frames()
         self.patient_id=self.new_id()
+        self.delete_frames()
         title_label=Label(self.main_frame,text='Patient Registration UI',font=('Times New Roman',15,'bold'),bg='light green').pack()
         id_label=Label(self.main_frame,text='Patient ID:',font=('Times New Roman',15,'bold'),bg='light green').place(x=5,y=100)
         id_label2=Label(self.main_frame,text=self.patient_id,font=('Times New Roman',15,'bold'),bg='light green').place(x=200,y=100)
@@ -91,6 +91,8 @@ class RECEPTIONIST_UI:
                 con.commit()
                 con.close()
                 messagebox.showinfo('Patient Registration','Patient has been successfully registered')
+                self.patient_id=self.new_id()
+                id_label2=Label(self.main_frame,text=self.patient_id,font=('Times New Roman',15,'bold'),bg='light green').place(x=200,y=100)
 
 
     def doctor_list(self):
